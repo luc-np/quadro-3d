@@ -1,0 +1,1416 @@
+{
+ "product": {
+  "id": 15398820053360,
+  "title": "Quadro Decorativo Rosto Textura Estilo Gesso Craquelado Abstrato",
+  "url": "/products/quadro-decorativo-rosto-em-gesso-craquelado-abstrato-20240306143507"
+ },
+ "art": {
+  "url": "https://cdn.shopify.com/s/files/1/1040/7913/0992/files/quadro-decorativo-rosto-em-gesso-craquelado-abstrato-20240306143507-10.webp?width=1500",
+  "width": 768,
+  "height": 1181
+ },
+ "options": [
+  "Tamanho",
+  "Moldura",
+  "Cor da moldura"
+ ],
+ "variants": [
+  [
+   67598826242416,
+   "30x45",
+   "Sem moldura (placa)",
+   "Não se aplica",
+   9990,
+   true
+  ],
+  [
+   67598826275184,
+   "30x45",
+   "Filete",
+   "Preta",
+   24990,
+   true
+  ],
+  [
+   67598826307952,
+   "30x45",
+   "Filete",
+   "Branca",
+   24990,
+   true
+  ],
+  [
+   67598826340720,
+   "30x45",
+   "Filete",
+   "Tabaco",
+   24990,
+   true
+  ],
+  [
+   67598826373488,
+   "30x45",
+   "Filete",
+   "Freijó",
+   24990,
+   true
+  ],
+  [
+   67598826406256,
+   "30x45",
+   "Filete",
+   "Crua",
+   24990,
+   true
+  ],
+  [
+   67598826439024,
+   "30x45",
+   "Filete com vidro",
+   "Preta",
+   29990,
+   true
+  ],
+  [
+   67598826471792,
+   "30x45",
+   "Filete com vidro",
+   "Branca",
+   29990,
+   true
+  ],
+  [
+   67598826504560,
+   "30x45",
+   "Filete com vidro",
+   "Tabaco",
+   29990,
+   true
+  ],
+  [
+   67598826537328,
+   "30x45",
+   "Filete com vidro",
+   "Freijó",
+   29990,
+   true
+  ],
+  [
+   67598826570096,
+   "30x45",
+   "Filete com vidro",
+   "Crua",
+   29990,
+   true
+  ],
+  [
+   67598826602864,
+   "30x45",
+   "Caixa",
+   "Preta",
+   22990,
+   true
+  ],
+  [
+   67598826635632,
+   "30x45",
+   "Caixa",
+   "Branca",
+   22990,
+   true
+  ],
+  [
+   67598826668400,
+   "30x45",
+   "Caixa",
+   "Tabaco",
+   22990,
+   true
+  ],
+  [
+   67598826701168,
+   "30x45",
+   "Caixa",
+   "Freijó",
+   22990,
+   true
+  ],
+  [
+   67598826733936,
+   "30x45",
+   "Caixa",
+   "Crua",
+   22990,
+   true
+  ],
+  [
+   67598826766704,
+   "30x45",
+   "Caixa com vidro",
+   "Preta",
+   24990,
+   true
+  ],
+  [
+   67598826799472,
+   "30x45",
+   "Caixa com vidro",
+   "Branca",
+   24990,
+   true
+  ],
+  [
+   67598826832240,
+   "30x45",
+   "Caixa com vidro",
+   "Tabaco",
+   24990,
+   true
+  ],
+  [
+   67598826865008,
+   "30x45",
+   "Caixa com vidro",
+   "Freijó",
+   24990,
+   true
+  ],
+  [
+   67598826897776,
+   "30x45",
+   "Caixa com vidro",
+   "Crua",
+   24990,
+   true
+  ],
+  [
+   67598826930544,
+   "30x45",
+   "Canvas / Flutuante",
+   "Preta",
+   29990,
+   true
+  ],
+  [
+   67598826963312,
+   "30x45",
+   "Canvas / Flutuante",
+   "Branca",
+   29990,
+   true
+  ],
+  [
+   67598826996080,
+   "30x45",
+   "Canvas / Flutuante",
+   "Tabaco",
+   29990,
+   true
+  ],
+  [
+   67598827028848,
+   "30x45",
+   "Canvas / Flutuante",
+   "Freijó",
+   29990,
+   true
+  ],
+  [
+   67598827061616,
+   "30x45",
+   "Canvas / Flutuante",
+   "Crua",
+   29990,
+   true
+  ],
+  [
+   67598827094384,
+   "40x60",
+   "Sem moldura (placa)",
+   "Não se aplica",
+   14990,
+   true
+  ],
+  [
+   67598827127152,
+   "40x60",
+   "Filete",
+   "Preta",
+   34990,
+   true
+  ],
+  [
+   67598827159920,
+   "40x60",
+   "Filete",
+   "Branca",
+   34990,
+   true
+  ],
+  [
+   67598827192688,
+   "40x60",
+   "Filete",
+   "Tabaco",
+   34990,
+   true
+  ],
+  [
+   67598827225456,
+   "40x60",
+   "Filete",
+   "Freijó",
+   34990,
+   true
+  ],
+  [
+   67598827258224,
+   "40x60",
+   "Filete",
+   "Crua",
+   34990,
+   true
+  ],
+  [
+   67598827290992,
+   "40x60",
+   "Filete com vidro",
+   "Preta",
+   39990,
+   true
+  ],
+  [
+   67598827323760,
+   "40x60",
+   "Filete com vidro",
+   "Branca",
+   39990,
+   true
+  ],
+  [
+   67598827356528,
+   "40x60",
+   "Filete com vidro",
+   "Tabaco",
+   39990,
+   true
+  ],
+  [
+   67598827389296,
+   "40x60",
+   "Filete com vidro",
+   "Freijó",
+   39990,
+   true
+  ],
+  [
+   67598827422064,
+   "40x60",
+   "Filete com vidro",
+   "Crua",
+   39990,
+   true
+  ],
+  [
+   67598827454832,
+   "40x60",
+   "Caixa",
+   "Preta",
+   32990,
+   true
+  ],
+  [
+   67598827487600,
+   "40x60",
+   "Caixa",
+   "Branca",
+   32990,
+   true
+  ],
+  [
+   67598827520368,
+   "40x60",
+   "Caixa",
+   "Tabaco",
+   32990,
+   true
+  ],
+  [
+   67598827553136,
+   "40x60",
+   "Caixa",
+   "Freijó",
+   32990,
+   true
+  ],
+  [
+   67598827585904,
+   "40x60",
+   "Caixa",
+   "Crua",
+   32990,
+   true
+  ],
+  [
+   67598827618672,
+   "40x60",
+   "Caixa com vidro",
+   "Preta",
+   34990,
+   true
+  ],
+  [
+   67598827651440,
+   "40x60",
+   "Caixa com vidro",
+   "Branca",
+   34990,
+   true
+  ],
+  [
+   67598827684208,
+   "40x60",
+   "Caixa com vidro",
+   "Tabaco",
+   34990,
+   true
+  ],
+  [
+   67598827716976,
+   "40x60",
+   "Caixa com vidro",
+   "Freijó",
+   34990,
+   true
+  ],
+  [
+   67598827749744,
+   "40x60",
+   "Caixa com vidro",
+   "Crua",
+   34990,
+   true
+  ],
+  [
+   67598827782512,
+   "40x60",
+   "Canvas / Flutuante",
+   "Preta",
+   39990,
+   true
+  ],
+  [
+   67598827815280,
+   "40x60",
+   "Canvas / Flutuante",
+   "Branca",
+   39990,
+   true
+  ],
+  [
+   67598827848048,
+   "40x60",
+   "Canvas / Flutuante",
+   "Tabaco",
+   39990,
+   true
+  ],
+  [
+   67598827880816,
+   "40x60",
+   "Canvas / Flutuante",
+   "Freijó",
+   39990,
+   true
+  ],
+  [
+   67598827913584,
+   "40x60",
+   "Canvas / Flutuante",
+   "Crua",
+   39990,
+   true
+  ],
+  [
+   67598827946352,
+   "50x70",
+   "Sem moldura (placa)",
+   "Não se aplica",
+   19990,
+   true
+  ],
+  [
+   67598827979120,
+   "50x70",
+   "Filete",
+   "Preta",
+   49990,
+   true
+  ],
+  [
+   67598828011888,
+   "50x70",
+   "Filete",
+   "Branca",
+   49990,
+   true
+  ],
+  [
+   67598828044656,
+   "50x70",
+   "Filete",
+   "Tabaco",
+   49990,
+   true
+  ],
+  [
+   67598828077424,
+   "50x70",
+   "Filete",
+   "Freijó",
+   49990,
+   true
+  ],
+  [
+   67598828110192,
+   "50x70",
+   "Filete",
+   "Crua",
+   49990,
+   true
+  ],
+  [
+   67598828142960,
+   "50x70",
+   "Filete com vidro",
+   "Preta",
+   59990,
+   true
+  ],
+  [
+   67598828175728,
+   "50x70",
+   "Filete com vidro",
+   "Branca",
+   59990,
+   true
+  ],
+  [
+   67598828208496,
+   "50x70",
+   "Filete com vidro",
+   "Tabaco",
+   59990,
+   true
+  ],
+  [
+   67598828241264,
+   "50x70",
+   "Filete com vidro",
+   "Freijó",
+   59990,
+   true
+  ],
+  [
+   67598828274032,
+   "50x70",
+   "Filete com vidro",
+   "Crua",
+   59990,
+   true
+  ],
+  [
+   67598828306800,
+   "50x70",
+   "Caixa",
+   "Preta",
+   44990,
+   true
+  ],
+  [
+   67598828339568,
+   "50x70",
+   "Caixa",
+   "Branca",
+   44990,
+   true
+  ],
+  [
+   67598828372336,
+   "50x70",
+   "Caixa",
+   "Tabaco",
+   44990,
+   true
+  ],
+  [
+   67598828405104,
+   "50x70",
+   "Caixa",
+   "Freijó",
+   44990,
+   true
+  ],
+  [
+   67598828437872,
+   "50x70",
+   "Caixa",
+   "Crua",
+   44990,
+   true
+  ],
+  [
+   67598828470640,
+   "50x70",
+   "Caixa com vidro",
+   "Preta",
+   49990,
+   true
+  ],
+  [
+   67598828503408,
+   "50x70",
+   "Caixa com vidro",
+   "Branca",
+   49990,
+   true
+  ],
+  [
+   67598828536176,
+   "50x70",
+   "Caixa com vidro",
+   "Tabaco",
+   49990,
+   true
+  ],
+  [
+   67598828568944,
+   "50x70",
+   "Caixa com vidro",
+   "Freijó",
+   49990,
+   true
+  ],
+  [
+   67598828601712,
+   "50x70",
+   "Caixa com vidro",
+   "Crua",
+   49990,
+   true
+  ],
+  [
+   67598828634480,
+   "50x70",
+   "Canvas / Flutuante",
+   "Preta",
+   59990,
+   true
+  ],
+  [
+   67598828667248,
+   "50x70",
+   "Canvas / Flutuante",
+   "Branca",
+   59990,
+   true
+  ],
+  [
+   67598828700016,
+   "50x70",
+   "Canvas / Flutuante",
+   "Tabaco",
+   59990,
+   true
+  ],
+  [
+   67598828732784,
+   "50x70",
+   "Canvas / Flutuante",
+   "Freijó",
+   59990,
+   true
+  ],
+  [
+   67598828765552,
+   "50x70",
+   "Canvas / Flutuante",
+   "Crua",
+   59990,
+   true
+  ],
+  [
+   67598828798320,
+   "60x90",
+   "Sem moldura (placa)",
+   "Não se aplica",
+   24990,
+   true
+  ],
+  [
+   67598828831088,
+   "60x90",
+   "Filete",
+   "Preta",
+   59990,
+   true
+  ],
+  [
+   67598828863856,
+   "60x90",
+   "Filete",
+   "Branca",
+   59990,
+   true
+  ],
+  [
+   67598828896624,
+   "60x90",
+   "Filete",
+   "Tabaco",
+   59990,
+   true
+  ],
+  [
+   67598828929392,
+   "60x90",
+   "Filete",
+   "Freijó",
+   59990,
+   true
+  ],
+  [
+   67598828962160,
+   "60x90",
+   "Filete",
+   "Crua",
+   59990,
+   true
+  ],
+  [
+   67598828994928,
+   "60x90",
+   "Filete com vidro",
+   "Preta",
+   69990,
+   true
+  ],
+  [
+   67598829027696,
+   "60x90",
+   "Filete com vidro",
+   "Branca",
+   69990,
+   true
+  ],
+  [
+   67598829060464,
+   "60x90",
+   "Filete com vidro",
+   "Tabaco",
+   69990,
+   true
+  ],
+  [
+   67598829093232,
+   "60x90",
+   "Filete com vidro",
+   "Freijó",
+   69990,
+   true
+  ],
+  [
+   67598829126000,
+   "60x90",
+   "Filete com vidro",
+   "Crua",
+   69990,
+   true
+  ],
+  [
+   67598829158768,
+   "60x90",
+   "Caixa",
+   "Preta",
+   54990,
+   true
+  ],
+  [
+   67598829191536,
+   "60x90",
+   "Caixa",
+   "Branca",
+   54990,
+   true
+  ],
+  [
+   67598829224304,
+   "60x90",
+   "Caixa",
+   "Tabaco",
+   54990,
+   true
+  ],
+  [
+   67598829257072,
+   "60x90",
+   "Caixa",
+   "Freijó",
+   54990,
+   true
+  ],
+  [
+   67598829289840,
+   "60x90",
+   "Caixa",
+   "Crua",
+   54990,
+   true
+  ],
+  [
+   67598829322608,
+   "60x90",
+   "Caixa com vidro",
+   "Preta",
+   59990,
+   true
+  ],
+  [
+   67598829355376,
+   "60x90",
+   "Caixa com vidro",
+   "Branca",
+   59990,
+   true
+  ],
+  [
+   67598829388144,
+   "60x90",
+   "Caixa com vidro",
+   "Tabaco",
+   59990,
+   true
+  ],
+  [
+   67598829420912,
+   "60x90",
+   "Caixa com vidro",
+   "Freijó",
+   59990,
+   true
+  ],
+  [
+   67598829453680,
+   "60x90",
+   "Caixa com vidro",
+   "Crua",
+   59990,
+   true
+  ],
+  [
+   67598829486448,
+   "60x90",
+   "Canvas / Flutuante",
+   "Preta",
+   69990,
+   true
+  ],
+  [
+   67598829519216,
+   "60x90",
+   "Canvas / Flutuante",
+   "Branca",
+   69990,
+   true
+  ],
+  [
+   67598829551984,
+   "60x90",
+   "Canvas / Flutuante",
+   "Tabaco",
+   69990,
+   true
+  ],
+  [
+   67598829584752,
+   "60x90",
+   "Canvas / Flutuante",
+   "Freijó",
+   69990,
+   true
+  ],
+  [
+   67598829617520,
+   "60x90",
+   "Canvas / Flutuante",
+   "Crua",
+   69990,
+   true
+  ],
+  [
+   67598829650288,
+   "120x80",
+   "Sem moldura (placa)",
+   "Não se aplica",
+   49990,
+   true
+  ],
+  [
+   67598829683056,
+   "120x80",
+   "Filete",
+   "Preta",
+   109990,
+   true
+  ],
+  [
+   67598829715824,
+   "120x80",
+   "Filete",
+   "Branca",
+   109990,
+   true
+  ],
+  [
+   67598829748592,
+   "120x80",
+   "Filete",
+   "Tabaco",
+   109990,
+   true
+  ],
+  [
+   67598829781360,
+   "120x80",
+   "Filete",
+   "Freijó",
+   109990,
+   true
+  ],
+  [
+   67598829814128,
+   "120x80",
+   "Filete",
+   "Crua",
+   109990,
+   true
+  ],
+  [
+   67598829846896,
+   "120x80",
+   "Filete com vidro",
+   "Preta",
+   139990,
+   true
+  ],
+  [
+   67598829879664,
+   "120x80",
+   "Filete com vidro",
+   "Branca",
+   139990,
+   true
+  ],
+  [
+   67598829912432,
+   "120x80",
+   "Filete com vidro",
+   "Tabaco",
+   139990,
+   true
+  ],
+  [
+   67598829945200,
+   "120x80",
+   "Filete com vidro",
+   "Freijó",
+   139990,
+   true
+  ],
+  [
+   67598829977968,
+   "120x80",
+   "Filete com vidro",
+   "Crua",
+   139990,
+   true
+  ],
+  [
+   67598830010736,
+   "120x80",
+   "Caixa",
+   "Preta",
+   99990,
+   true
+  ],
+  [
+   67598830043504,
+   "120x80",
+   "Caixa",
+   "Branca",
+   99990,
+   true
+  ],
+  [
+   67598830076272,
+   "120x80",
+   "Caixa",
+   "Tabaco",
+   99990,
+   true
+  ],
+  [
+   67598830109040,
+   "120x80",
+   "Caixa",
+   "Freijó",
+   99990,
+   true
+  ],
+  [
+   67598830141808,
+   "120x80",
+   "Caixa",
+   "Crua",
+   99990,
+   true
+  ],
+  [
+   67598830174576,
+   "120x80",
+   "Caixa com vidro",
+   "Preta",
+   129990,
+   true
+  ],
+  [
+   67598830207344,
+   "120x80",
+   "Caixa com vidro",
+   "Branca",
+   129990,
+   true
+  ],
+  [
+   67598830240112,
+   "120x80",
+   "Caixa com vidro",
+   "Tabaco",
+   129990,
+   true
+  ],
+  [
+   67598830272880,
+   "120x80",
+   "Caixa com vidro",
+   "Freijó",
+   129990,
+   true
+  ],
+  [
+   67598830305648,
+   "120x80",
+   "Caixa com vidro",
+   "Crua",
+   129990,
+   true
+  ],
+  [
+   67598830338416,
+   "120x80",
+   "Canvas / Flutuante",
+   "Preta",
+   139990,
+   true
+  ],
+  [
+   67598830371184,
+   "120x80",
+   "Canvas / Flutuante",
+   "Branca",
+   139990,
+   true
+  ],
+  [
+   67598830403952,
+   "120x80",
+   "Canvas / Flutuante",
+   "Tabaco",
+   139990,
+   true
+  ],
+  [
+   67598830436720,
+   "120x80",
+   "Canvas / Flutuante",
+   "Freijó",
+   139990,
+   true
+  ],
+  [
+   67598830469488,
+   "120x80",
+   "Canvas / Flutuante",
+   "Crua",
+   139990,
+   true
+  ],
+  [
+   67598830502256,
+   "150x100",
+   "Sem moldura (placa)",
+   "Não se aplica",
+   69990,
+   true
+  ],
+  [
+   67598830535024,
+   "150x100",
+   "Filete",
+   "Preta",
+   139990,
+   true
+  ],
+  [
+   67598830567792,
+   "150x100",
+   "Filete",
+   "Branca",
+   139990,
+   true
+  ],
+  [
+   67598830600560,
+   "150x100",
+   "Filete",
+   "Tabaco",
+   139990,
+   true
+  ],
+  [
+   67598830633328,
+   "150x100",
+   "Filete",
+   "Freijó",
+   139990,
+   true
+  ],
+  [
+   67598830666096,
+   "150x100",
+   "Filete",
+   "Crua",
+   139990,
+   true
+  ],
+  [
+   67598830698864,
+   "150x100",
+   "Filete com vidro",
+   "Preta",
+   189990,
+   true
+  ],
+  [
+   67598830731632,
+   "150x100",
+   "Filete com vidro",
+   "Branca",
+   189990,
+   true
+  ],
+  [
+   67598830764400,
+   "150x100",
+   "Filete com vidro",
+   "Tabaco",
+   189990,
+   true
+  ],
+  [
+   67598830797168,
+   "150x100",
+   "Filete com vidro",
+   "Freijó",
+   189990,
+   true
+  ],
+  [
+   67598830829936,
+   "150x100",
+   "Filete com vidro",
+   "Crua",
+   189990,
+   true
+  ],
+  [
+   67598830862704,
+   "150x100",
+   "Caixa",
+   "Preta",
+   129990,
+   true
+  ],
+  [
+   67598830895472,
+   "150x100",
+   "Caixa",
+   "Branca",
+   129990,
+   true
+  ],
+  [
+   67598830928240,
+   "150x100",
+   "Caixa",
+   "Tabaco",
+   129990,
+   true
+  ],
+  [
+   67598830961008,
+   "150x100",
+   "Caixa",
+   "Freijó",
+   129990,
+   true
+  ],
+  [
+   67598830993776,
+   "150x100",
+   "Caixa",
+   "Crua",
+   129990,
+   true
+  ],
+  [
+   67598831026544,
+   "150x100",
+   "Caixa com vidro",
+   "Preta",
+   179990,
+   true
+  ],
+  [
+   67598831059312,
+   "150x100",
+   "Caixa com vidro",
+   "Branca",
+   179990,
+   true
+  ],
+  [
+   67598831092080,
+   "150x100",
+   "Caixa com vidro",
+   "Tabaco",
+   179990,
+   true
+  ],
+  [
+   67598831124848,
+   "150x100",
+   "Caixa com vidro",
+   "Freijó",
+   179990,
+   true
+  ],
+  [
+   67598831157616,
+   "150x100",
+   "Caixa com vidro",
+   "Crua",
+   179990,
+   true
+  ],
+  [
+   67598831190384,
+   "150x100",
+   "Canvas / Flutuante",
+   "Preta",
+   189990,
+   true
+  ],
+  [
+   67598831223152,
+   "150x100",
+   "Canvas / Flutuante",
+   "Branca",
+   189990,
+   true
+  ],
+  [
+   67598831255920,
+   "150x100",
+   "Canvas / Flutuante",
+   "Tabaco",
+   189990,
+   true
+  ],
+  [
+   67598831288688,
+   "150x100",
+   "Canvas / Flutuante",
+   "Freijó",
+   189990,
+   true
+  ],
+  [
+   67598831321456,
+   "150x100",
+   "Canvas / Flutuante",
+   "Crua",
+   189990,
+   true
+  ]
+ ],
+ "selected": 67598827716976,
+ "pix": 3,
+ "installments": 10,
+ "rating": {
+  "score": 4.6,
+  "total": 158
+ },
+ "reviews": [
+  {
+   "n": "Sandra Sousa",
+   "t": "20/06/2026",
+   "x": "Maravilhosa! Superou minhas expectativas!\nVou comprar para o quarto agora.",
+   "imgs": [
+    "https://cdn.11.vuzi.com.br/goquadros/reviews/ci9dqulrqunvzenodhljrjlvt25anvvwqtfnwfz0vvdsdldrrlzxr2mwtuzcqlngrrab0.jpg",
+    "https://cdn.11.vuzi.com.br/goquadros/reviews/ci9dqulrqunvzenodhljrjlvt25anvvwqtfnwfz0vvdsdldrrlzxr2mwtuzcqlngrrab1.jpg"
+   ],
+   "f": [
+    "quarto"
+   ]
+  },
+  {
+   "n": "Karine Mota",
+   "t": "19/06/2026",
+   "x": "Amei a minha escolha! Excelente acabamento, atendimento bem personalizado. Chegou em uma caixa de madeira bem embalado. A experiência foi muito boa!",
+   "imgs": [
+    "https://cdn.11.vuzi.com.br/goquadros/reviews/ci9dqulrqunvzenodhljrjlvt2poeljgzgxymmrzvuhwumezag1hekpjywxonldwrrab0.jpg",
+    "https://cdn.11.vuzi.com.br/goquadros/reviews/ci9dqulrqunvzenodhljrjlvt2poeljgzgxymmrzvuhwumezag1hekpjywxonldwrrab1.jpg"
+   ],
+   "f": [
+    "cozinha"
+   ]
+  },
+  {
+   "n": "Patrícia Garcia",
+   "t": "26/05/2026",
+   "x": "Eu estava em dúvida do tamanho e vi no insta da loja que eles realizam uma simulação do ambiente para se ter uma noção de como ficará com tamanho etc, chamei eles no whats e o atendimento foi impecável, super atenciosos e me ajudaram com o tamanho certo. Super recomendo e assim que o planejado do meu escritório ficar pronto com certeza comprarei com vocês novamente!!",
+   "imgs": [
+    "https://cdn.11.vuzi.com.br/goquadros/reviews/ci9dqulrqunvzenodhljrjlvt2psc05grtrjvgxdzuhkcmvvzdvwv2n3uzbktlrgrrab0.jpg"
+   ],
+   "f": [
+    "sala",
+    "escritorio"
+   ]
+  },
+  {
+   "n": "maria sandra",
+   "t": "18/05/2026",
+   "x": "O quadro é muito bonito!\nChegou rápido e bem embalado!",
+   "imgs": [
+    "https://cdn.11.vuzi.com.br/goquadros/reviews/ci9dqulrqunvzenodhljrjlvt2t4uk5rndjjbkp1wtnrmmffrlvymghuvvu4mk0xrrab0.jpg"
+   ],
+   "f": [
+    "hall"
+   ]
+  },
+  {
+   "n": "beatriz cristina",
+   "t": "14/05/2026",
+   "x": "Atendimento personalizado, responde super rápido, veio muito bem embalado, sem nenhum defeito, imagem nítida, colocaram a frase que pedi...amei a compra",
+   "imgs": [
+    "https://cdn.11.vuzi.com.br/goquadros/reviews/ci9dqulrqunvzenodhljrjlvt2xaevnizdjusfjpvjfabgjuqnbumnrpwjfsm1pxyxab0.jpg",
+    "https://cdn.11.vuzi.com.br/goquadros/reviews/ci9dqulrqunvzenodhljrjlvt2xaevnizdjusfjpvjfabgjuqnbumnrpwjfsm1pxyxab1.jpg"
+   ],
+   "f": [
+    "escritorio"
+   ]
+  },
+  {
+   "n": "Josiane Carvalho",
+   "t": "29/04/2026",
+   "x": "Ótima experiência com produtos de qualidade e excelência no atendimento.\nRecomendo!!",
+   "imgs": [
+    "https://cdn.11.vuzi.com.br/goquadros/reviews/ci9dqulrqunvzenodhljrjlvt2prek4xy3lprmhhvezswgjfnvfla1juujaxr1jtyxab0.jpg",
+    "https://cdn.11.vuzi.com.br/goquadros/reviews/ci9dqulrqunvzenodhljrjlvt2prek4xy3lprmhhvezswgjfnvfla1juujaxr1jtyxab1.jpg"
+   ],
+   "f": [
+    "hall",
+    "sala"
+   ]
+  },
+  {
+   "n": "Ligia Ferreira",
+   "t": "28/04/2026",
+   "x": "Os quadros são lindos, vieram super ,mega ,hiper bem embalados! Chegaram no prazo estipulado. Eu gostei muito e com certeza indico!\nPena que pelas fotos a cor real mudou. É um verde menta lindo!",
+   "imgs": [
+    "https://cdn.11.vuzi.com.br/goquadros/reviews/ci9dqulrqunvzenodhljrjlvt2pneljfsjvomwhiyuvkmfnitk5jmkzmtkhsmwnsrrab0.jpg",
+    "https://cdn.11.vuzi.com.br/goquadros/reviews/ci9dqulrqunvzenodhljrjlvt2pneljfsjvomwhiyuvkmfnitk5jmkzmtkhsmwnsrrab1.jpg"
+   ],
+   "f": [
+    "quarto"
+   ]
+  },
+  {
+   "n": "Raquel Silva",
+   "t": "21/04/2026",
+   "x": "Chegou e superou minhas expectativas",
+   "imgs": [
+    "https://cdn.11.vuzi.com.br/goquadros/reviews/ci9dqulrqunvzenodhljrjlvt2pkbwnpmxfuamr2tvrka1dgvtvrmuputurkd2vhyxab0.jpg"
+   ],
+   "f": [
+    "quarto"
+   ]
+  },
+  {
+   "n": "Vitor Galvão",
+   "t": "16/04/2026",
+   "x": "Os Quadros tem material de excelente Qualidade!\n\nJá é minha segunda compra com eles, comprei meus quadros para a sala na primeira vez e agora para o meu escritorio.",
+   "imgs": [],
+   "f": [
+    "sala",
+    "escritorio"
+   ]
+  },
+  {
+   "n": "Eduarda Fuzzaro",
+   "t": "16/02/2026",
+   "x": "Simplesmente perfeitos! Super cumpriram com o prazo de entrega! Vieram bem embalados, fáceis de instalar. As meninas super educadas, me deram apoio e tiraram minhas dúvidas do início ao fim. Com certeza compraria novamente!",
+   "imgs": [
+    "https://cdn.11.vuzi.com.br/goquadros/reviews/ci9dqulrqunvzenodhljrjlvt21gbvvpmujvrmq2uznrevrruknia1zputjobllrrrab0.jpg"
+   ],
+   "f": [
+    "hall"
+   ]
+  },
+  {
+   "n": "Carol Pupio",
+   "t": "20/08/2026",
+   "x": "Quadros lindos e de ótima qualidade. O atendimento foi excelente, precisado de uma troca e não tive problema nenhum. Indico demais!",
+   "imgs": [
+    "https://cdn.11.vuzi.com.br/goquadros/reviews/ci9dqulrqunvzenodhljrjlvt2tkdflqqmfwve54uxpsse4zafrwbe5pvky5bmfhyxab0.jpg",
+    "https://cdn.11.vuzi.com.br/goquadros/reviews/ci9dqulrqunvzenodhljrjlvt2tkdflqqmfwve54uxpsse4zafrwbe5pvky5bmfhyxab1.jpg"
+   ],
+   "f": [
+    "sala"
+   ]
+  },
+  {
+   "n": "Nathália Fonteles",
+   "t": "13/07/2026",
+   "x": "Os quadros são muito lindos e de muita qualidade, essa coleção Cultura Brasil está belíssima.\nPreciso mencionar também o cuidado da empresa em relação ao envio,  os quadros vieram com as laterais todas protegidas e em uma caixa resistente de mdf.\nEstou encantada e muito feliz com a experiência de compra na go quadros,  indico de olhos fechados 🧡",
+   "imgs": [
+    "https://cdn.11.vuzi.com.br/goquadros/reviews/ci9dqulrqunvzenodhljrjlvt21oslvhahjxvnbmzdbnd2fvyznhbkzvykdwv1rhyxab0.jpg",
+    "https://cdn.11.vuzi.com.br/goquadros/reviews/ci9dqulrqunvzenodhljrjlvt21oslvhahjxvnbmzdbnd2fvyznhbkzvykdwv1rhyxab1.jpg"
+   ],
+   "f": [
+    "sala"
+   ]
+  }
+ ]
+}

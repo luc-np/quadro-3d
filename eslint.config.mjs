@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Visualizador embutível gerado por npm run build:embed
+    "dist/**",
   ]),
 ]);
 

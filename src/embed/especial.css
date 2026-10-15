@@ -1,0 +1,61 @@
+/*
+ * CSS da página especial embutida no tema (src/embed/especial.tsx): o Tailwind só das classes
+ * usadas nos componentes da página, para o Shadow DOM. O preflight do Tailwind 4 vale para
+ * :host, então zera o estilo dentro da página sem tocar no tema.
+ */
+@import 'tailwindcss' source(none);
+@source '../components/especial';
+@source '../components/scene/LoadingScreen.tsx';
+@source '../components/scene/LoadingOverlay.tsx';
+
+:host {
+  display: block;
+  background: #f4f1ec;
+}
+
+/* As mesmas animações de src/app/globals.css: a linha das escolhas se desenha, o ponto pulsa */
+@keyframes especial-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes especial-pulse {
+  0%,
+  100% {
+    stroke-width: 2;
+  }
+  50% {
+    stroke-width: 5;
+  }
+}
+@keyframes especial-panel {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.especial-draw {
+  stroke-dashoffset: 1;
+  animation: especial-draw 1.1s cubic-bezier(0.65, 0, 0.35, 1) 0.4s forwards;
+}
+.especial-pulse {
+  animation: especial-pulse 2.4s ease-in-out infinite;
+}
+.especial-panel {
+  animation: especial-panel 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0.9s both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .especial-draw,
+  .especial-pulse,
+  .especial-panel {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}

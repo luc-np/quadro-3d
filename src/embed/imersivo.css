@@ -1,0 +1,25 @@
+/*
+ * CSS da página imersiva embutida no tema (src/embed/imersivo.tsx): o Tailwind só das classes
+ * usadas nos componentes dela (a página imersiva e o que ela reaproveita da especial), para o
+ * Shadow DOM. O preflight do Tailwind 4 vale para :host, então zera o estilo só dentro da página.
+ */
+@import 'tailwindcss' source(none);
+@source '../components/imersivo';
+@source '../components/especial/BuyPanel.tsx';
+@source '../components/especial/ChoiceControls.tsx';
+@source '../components/especial/Details.tsx';
+@source '../components/scene/LoadingScreen.tsx';
+@source '../components/scene/LoadingOverlay.tsx';
+
+:host {
+  display: block;
+  background: #fff;
+}
+
+/* Seletor de vistas: cada ambiente da lista entra da esquerda (atraso escalonado no estilo do botão) */
+@keyframes gq-room-in {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+}
