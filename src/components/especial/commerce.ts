@@ -82,10 +82,12 @@ export async function lookupCep(cep: string): Promise<{ city: string; uf: string
  */
 export function shippingRates(root: string, variantId: number, cep: string, uf: string): Promise<ShippingRate[]> {
   return withCart(async () => {
-    const before = await cartJson<{ items?: { variant_id: number; quantity: number }[] }>(root, 'cart.js')
-    const had = (before.items ?? []).find((item) => item.variant_id === variantId)
+    const before = await cartJson<{ items?: { key: string; quantity: number }[] }>(root, 'cart.js')
     const added = await cartJson<{ items?: { key: string }[]; key?: string }>(root, 'cart/add.js', { items: [{ id: variantId, quantity: 1 }] })
     const key = added.items?.[0]?.key ?? added.key
+    // A mesma linha (variante sem propriedades) volta à quantidade de antes. Pela chave, não pela
+    // variante: o mesmo quadro com a foto do cliente é outra linha e não pode ser mexido aqui
+    const had = (before.items ?? []).find((item) => item.key === key)
     const restore = () => cartJson(root, 'cart/change.js', { id: key, quantity: had ? had.quantity : 0 })
     const query = new URLSearchParams({
       'shipping_address[zip]': `${cep.slice(0, 5)}-${cep.slice(5)}`,
