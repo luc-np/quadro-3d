@@ -7,7 +7,9 @@ import { textureUrls } from '@/components/scene/materials'
 import { configureModel, FINISHES } from '@/components/scene/models/configure'
 import { FRAME_FINISHES } from '@/components/scene/models/surfaces'
 import { Studio } from '@/components/scene/Studio'
+import { DropVeil, useArtDrop } from './ArtDrop'
 import { BuyPanel } from './BuyPanel'
+import { useCustomArt } from './customArt'
 import { Details } from './Details'
 import { Overlay } from './Overlay'
 import { AMBIENT } from './PhotoRoom'
@@ -54,13 +56,19 @@ export default function Especial({ shop, environment = 'hdr', topOffset = 0 }: E
   const finishes = useMemo(() => finishesOf(shop), [shop])
   const sizes = useMemo(() => sizesOf(shop), [shop])
   const variant = variantOf(shop, choice)
+  // Personalizado: a foto do cliente, já enquadrada na proporção da peça, entra no lugar da arte
+  // de exemplo. A orientação (retrato/paisagem) segue a do produto (shop.art). Trocar a arte não
+  // apaga a cena: o Story mostra o modelo anterior até a textura nova carregar (useDeferredValue)
+  const custom = useCustomArt(shop, choice.size)
+  const dragging = useArtDrop(custom)
+  const artUrl = custom.art ?? shop.art.url
   const model = useMemo(() => {
     const { width, height } = sizeMeters(choice.size, shop.art)
-    const full = configureModel({ ...choice, glass: choice.glass && takesGlass(choice.finish), width, height, art: shop.art.url })
+    const full = configureModel({ ...choice, glass: choice.glass && takesGlass(choice.finish), width, height, art: artUrl })
     const frame = full.parts.find((part) => part.id === 'moldura')
     if (!frame) return full
     return { ...full, parts: full.parts.map((part) => (ATTACHED_PARTS.includes(part.id) ? { ...part, explode: frame.explode } : part)) }
-  }, [choice, shop.art])
+  }, [choice, shop.art, artUrl])
   // As partes explicadas na vista por dentro
   const explained = useMemo(() => model.parts.filter((part) => !ATTACHED_PARTS.includes(part.id)), [model])
 
@@ -138,6 +146,7 @@ export default function Especial({ shop, environment = 'hdr', topOffset = 0 }: E
             parts={explained}
             onAdvance={advance}
             glass={glass}
+            custom={custom}
           />
         </div>
 
@@ -145,12 +154,13 @@ export default function Especial({ shop, environment = 'hdr', topOffset = 0 }: E
         <div className="pointer-events-none relative z-50 col-start-1 row-start-1 min-w-0">
           <div ref={trackRef} data-story-track style={{ height: `calc(${stageHeight} * ${STORY_PAGES})` }} />
           <div className="md:ml-[50%] md:w-1/2">
-            <BuyPanel shop={shop} choice={choice} onPick={pick} finishes={finishes} sizes={sizes} variant={variant} />
+            <BuyPanel shop={shop} choice={choice} onPick={pick} finishes={finishes} sizes={sizes} variant={variant} custom={custom} />
           </div>
         </div>
       </div>
 
       <Details shop={shop} />
+      <DropVeil show={dragging} />
     </div>
   )
 }

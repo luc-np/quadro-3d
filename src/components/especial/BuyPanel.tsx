@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import type { Finish } from '@/components/scene/models/configure'
+import { ArtGroup } from './ArtDrop'
 import { ChoiceOptions } from './ChoiceControls'
 import { addToCart, lookupCep, shippingRates, trackAndGoToCart, type ShippingRate } from './commerce'
+import type { CustomArt } from './customArt'
+import type { PhotoError } from './gqphoto'
 import { COLOR_LABEL, FINISH_LABEL } from './labels'
 import { hasFrame, money, sizeLabel, takesGlass, type Choice, type ShopData } from './shop'
 
@@ -13,17 +16,21 @@ interface BuyPanelProps {
   sizes: string[]
   /** A variante da escolha: [id, Tamanho, Moldura, Cor, preço em centavos, disponível] */
   variant: ShopData['variants'][number] | undefined
+  /** Personalizado: a foto do cliente */
+  custom?: CustomArt
 }
 
 /**
  * A compra, no fim da história: entra ao lado do quadro (no celular, por cima, como uma folha
  * que sobe), com as mesmas escolhas do topo, preço, frete e o botão de comprar.
  */
-export function BuyPanel({ shop, choice, onPick, finishes, sizes, variant }: BuyPanelProps) {
+export function BuyPanel({ shop, choice, onPick, finishes, sizes, variant, custom }: BuyPanelProps) {
   const options = { shop, choice, onPick, finishes, sizes }
   const price = variant?.[4] ?? null
   const glassOk = takesGlass(choice.finish)
-  const { buy, busy, error, available } = useBuy(shop, variant)
+  const photo = custom?.on ? custom : undefined
+  const { buy, busy, error, available } = useBuy(shop, variant, photo)
+  const sending = busy && photo?.progress != null
   const { pixPrice, installment } = paymentOf(shop, price)
 
   return (
@@ -52,6 +59,7 @@ export function BuyPanel({ shop, choice, onPick, finishes, sizes, variant }: Buy
       </div>
 
       <div className="mt-8 space-y-6">
+        {photo && <ArtGroup custom={photo} />}
         <Group title="Tamanho (cm)" value={sizeLabel(choice.size, shop.art)}>
           <ChoiceOptions kind="tamanho" {...options} />
         </Group>
@@ -82,9 +90,14 @@ export function BuyPanel({ shop, choice, onPick, finishes, sizes, variant }: Buy
         disabled={!available || busy}
         className="mt-6 flex h-14 w-full items-center justify-center rounded-full bg-[#2a2520] text-sm font-semibold tracking-[0.18em] text-white uppercase transition hover:bg-[#c85f12] disabled:cursor-not-allowed disabled:opacity-50"
       >
-        {busy ? 'Adicionando…' : available ? 'Adicionar ao carrinho' : 'Indisponível'}
+        {buyLabel(busy, available, photo)}
       </button>
-      {error && <p className="mt-3 text-center text-[13px] text-[#a3441a]">{error}</p>}
+      {sending && (
+        <button type="button" onClick={photo?.cancel} className="mt-2 flex h-11 w-full items-center justify-center text-[13px] text-[#5a534e] underline underline-offset-4">
+          Cancelar envio
+        </button>
+      )}
+      {error && <p className="mt-3 text-center text-[13px] text-[#a3441a]" aria-live="polite">{error}</p>}
 
       <ul className="mt-6 grid grid-cols-3 gap-2 text-center text-[11px] leading-snug text-[#5a534e]">
         <li className="rounded-xl border border-[#e4dccf] px-2 py-3">Envio em 48h úteis</li>
@@ -95,8 +108,20 @@ export function BuyPanel({ shop, choice, onPick, finishes, sizes, variant }: Buy
   )
 }
 
-/** Comprar a variante: põe no carrinho e segue para ele (também usado pela página imersiva) */
-export function useBuy(shop: ShopData, variant: ShopData['variants'][number] | undefined) {
+/** Texto do botão de comprar (com a foto: pedir a foto e mostrar o envio) */
+function buyLabel(busy: boolean, available: boolean, photo: CustomArt | undefined): string {
+  if (busy) return photo?.progress != null ? `Enviando sua foto… ${photo.progress}%` : 'Adicionando…'
+  if (!available) return 'Indisponível'
+  if (photo?.required && !photo.slot) return 'Envie sua foto'
+  return 'Adicionar ao carrinho'
+}
+
+/**
+ * Comprar a variante: põe no carrinho e segue para ele (também usado pela página imersiva).
+ * Personalizado (`photo`): sem a foto, quando ela é obrigatória, o botão abre o seletor; com ela,
+ * o item vai com a foto (no envio 's3', espera a foto terminar de subir).
+ */
+export function useBuy(shop: ShopData, variant: ShopData['variants'][number] | undefined, photo?: CustomArt) {
   const available = Boolean(variant && variant[5])
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -106,14 +131,26 @@ export function useBuy(shop: ShopData, variant: ShopData['variants'][number] | u
       setError('Na página da loja este botão coloca o quadro no carrinho.')
       return
     }
+    if (photo?.required && !photo.slot) {
+      setError(null)
+      photo.choose()
+      return
+    }
     setBusy(true)
     setError(null)
     try {
-      await addToCart(shop.cartRoot, variant[0])
+      if (photo) {
+        await photo.prepare()
+        await addToCart(shop.cartRoot, variant[0], () => photo.send(variant[0]))
+      } else {
+        await addToCart(shop.cartRoot, variant[0])
+      }
       trackAndGoToCart(shop.cartRoot, shop.product, variant[4])
     } catch (failure) {
       setBusy(false)
-      const message = (failure as { description?: string; message?: string }) ?? {}
+      const message = (failure as PhotoError & { message?: string }) ?? {}
+      // Cancelou o envio: nada entrou na sacola; dá para tentar de novo
+      if (message.canceled) return
       setError(message.description || message.message || 'Não deu para adicionar ao carrinho. Tente de novo.')
     }
   }

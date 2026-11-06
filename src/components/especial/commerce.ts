@@ -26,8 +26,12 @@ function withCart<T>(task: () => Promise<T>): Promise<T> {
   return run
 }
 
-export async function addToCart(root: string, variantId: number): Promise<void> {
-  await withCart(() => cartJson(root, 'cart/add.js', { items: [{ id: variantId, quantity: 1 }] }))
+/**
+ * Põe a variante no carrinho. `send`: o item já montado por quem chama (o personalizado manda a
+ * foto pelo GQPhoto do tema, com progresso e cancelamento: customArt.ts); sem ele, só a variante.
+ */
+export async function addToCart(root: string, variantId: number, send?: () => Promise<unknown>): Promise<void> {
+  await withCart(send ?? (() => cartJson(root, 'cart/add.js', { items: [{ id: variantId, quantity: 1 }] })))
 }
 
 /** Avisa as ferramentas de anúncio da loja (as mesmas da página de produto) e segue para o carrinho */
