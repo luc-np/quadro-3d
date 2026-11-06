@@ -1,5 +1,6 @@
 import type { Finish } from '@/components/scene/models/configure'
 import type { FrameColor } from '@/components/scene/models/surfaces'
+import type { Envio } from './gqphoto'
 
 /**
  * Dados do produto da loja, como a seção do tema entrega (e o demo-product.json, no Next):
@@ -27,6 +28,11 @@ export interface ShopData {
   description?: string
   /** Página imersiva: o ambiente que abre primeiro (metafield custom.ambiente_padrao, nome ou chave) */
   room?: string | null
+  /**
+   * Personalizado: o cliente envia a foto, que vira a arte do 3D. `envio`: como a foto chega
+   * (ajuste do tema "Como a foto chega"); `endpoint`: quem assina o envio 's3'.
+   */
+  custom?: { envio: Envio; endpoint?: string } | null
 }
 
 /** Avaliação da loja: nome, data, texto, fotos e ambientes (o formato do snippet gq-pdp-reviews) */
@@ -108,6 +114,12 @@ export function sizeMeters(size: string, art: ShopData['art']): { width: number;
   const [a, b] = size.split(/x/i).map((value) => Number(value) / 100)
   const portrait = art.height >= art.width
   return portrait ? { width: Math.min(a, b), height: Math.max(a, b) } : { width: Math.max(a, b), height: Math.min(a, b) }
+}
+
+/** Medida da peça em cm (largura e altura na orientação da arte): o enquadramento da foto do cliente */
+export function sizeCm(size: string, art: ShopData['art']): { w: number; h: number } {
+  const { width, height } = sizeMeters(size, art)
+  return { w: Math.round(width * 100), h: Math.round(height * 100) }
 }
 
 /** "40x60" → "40×60", sempre na orientação da arte */

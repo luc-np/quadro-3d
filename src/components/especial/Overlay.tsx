@@ -1,7 +1,9 @@
 import { useState, type ReactNode, type RefObject } from 'react'
 import type { Finish } from '@/components/scene/models/configure'
 import type { PartDef } from '@/components/scene/models/types'
+import { HeroArtButton, HeroArtPanel } from './ArtDrop'
 import { ChoiceOptions } from './ChoiceControls'
+import type { CustomArt } from './customArt'
 import { CHOICE_TITLE, CHOICES, COLOR_LABEL, FINISH_SHORT, type ChoiceKey } from './labels'
 import { hasFrame, money, sizeLabel, takesGlass, type Choice, type ShopData } from './shop'
 import { PACK_STEPS, PHRASES } from './story'
@@ -21,6 +23,8 @@ interface OverlayProps {
   glass: boolean
   /** Botão "Avançar": rola a página até a próxima etapa da história */
   onAdvance: () => void
+  /** Personalizado: a foto do cliente (o topo ganha o botão de enviar) */
+  custom?: CustomArt
 }
 
 /**
@@ -28,7 +32,7 @@ interface OverlayProps {
  * ambiente, os títulos da vista por dentro e da embalagem e a dica da vitrine. A animação acha
  * os elementos pelos atributos data-* e muda opacidade e posição a cada frame (StoryScene).
  */
-export function Overlay({ shop, choice, onPick, finishes, sizes, price, rootRef, parts, glass, onAdvance }: OverlayProps) {
+export function Overlay({ shop, choice, onPick, finishes, sizes, price, rootRef, parts, glass, onAdvance, custom }: OverlayProps) {
   // Celular: qual escolha a bandeja de baixo mostra
   const [tab, setTab] = useState<ChoiceKey>('moldura')
   const frame = hasFrame(choice.finish)
@@ -74,14 +78,16 @@ export function Overlay({ shop, choice, onPick, finishes, sizes, price, rootRef,
 
         <div data-hero-title className="absolute top-8 left-1/2 w-full -translate-x-1/2 px-6 text-center md:top-[7%]">
           <h1 className="text-[1.75rem] leading-tight font-light tracking-tight md:text-6xl">
-            O seu quadro, <em className="font-semibold text-[#c85f12] not-italic">do seu jeito</em>
+            O seu quadro, <em className="font-semibold text-[#c85f12] not-italic">{custom?.on ? 'com a sua foto' : 'do seu jeito'}</em>
           </h1>
           <p className="mt-1.5 text-xs text-[#8a7d6c] md:mt-3 md:text-base">
             {summary} · <b className="font-semibold text-[#2a2520]">{price === null ? 'indisponível' : money(price)}</b>
           </p>
+          {custom?.on && <HeroArtButton custom={custom} />}
         </div>
 
-        {/* Computador: uma caixa por escolha, em volta do quadro */}
+        {/* Computador: uma caixa por escolha, em volta do quadro (e a da foto, no personalizado) */}
+        {custom?.on && <HeroArtPanel custom={custom} />}
         <Panel id="cor" title="Cor da moldura" className="top-[27%] left-[7%]" disabled={!frame} note={off.cor && 'Sem moldura, sem cor'}>
           <ChoiceOptions kind="cor" {...options} />
         </Panel>
