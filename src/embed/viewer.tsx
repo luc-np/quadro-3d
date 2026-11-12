@@ -89,8 +89,9 @@ export function mount(element: HTMLElement, config: ViewerConfig, options: Mount
 
 declare global {
   interface Window {
-    GQ3DViewer?: { mount: typeof mount; supported: typeof supported }
+    /** `padrao`: conhece a moldura padrão; sem ele, o tema manda o filete no lugar dela */
+    GQ3DViewer?: { mount: typeof mount; supported: typeof supported; padrao: true }
   }
 }
 
-window.GQ3DViewer = { mount, supported }
+window.GQ3DViewer = { mount, supported, padrao: true }

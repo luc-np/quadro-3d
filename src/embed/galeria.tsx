@@ -19,7 +19,7 @@ import { AmbientLight, Color, DirectionalLight, Group, Mesh, MeshBasicMaterial, 
 import { createRoot, extend } from '@react-three/fiber'
 import { useTexture } from '@react-three/drei'
 import { assetUrl, setTextureUrlResolver, textureUrls } from '@/components/scene/materials'
-import { configureModel, type Finish } from '@/components/scene/models/configure'
+import { configureModel, type ModelFinish } from '@/components/scene/models/configure'
 import { FRAME_FINISHES, type FrameColor } from '@/components/scene/models/surfaces'
 import { CAMERA } from '@/components/scene/Studio'
 import { SCENE_BACKGROUND } from '@/components/scene/theme'
@@ -33,7 +33,7 @@ import { GaleriaStage, NARROW_WIDTH, type GaleriaMode, type Insets } from '@/com
 extend({ AmbientLight, Color, DirectionalLight, Group, Mesh, MeshBasicMaterial, OrthographicCamera, PlaneGeometry })
 
 export interface GaleriaConfig {
-  finish: Finish
+  finish: ModelFinish
   glass: boolean
   color: FrameColor
   /** Largura e altura de cada peça como fica na parede (cm) */
@@ -264,9 +264,10 @@ function initialFurniture(): Record<string, string> {
 
 declare global {
   interface Window {
-    GQ3DGaleria?: { mount: typeof mount; supported: typeof supported }
+    /** `padrao`: conhece a moldura padrão; sem ele, o tema manda o filete no lugar dela */
+    GQ3DGaleria?: { mount: typeof mount; supported: typeof supported; padrao: true }
   }
 }
 
-window.GQ3DGaleria = { mount, supported }
+window.GQ3DGaleria = { mount, supported, padrao: true }
 window.dispatchEvent(new Event('gq3d:galeria'))
