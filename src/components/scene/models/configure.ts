@@ -1,7 +1,7 @@
 import { CANVAS_SPEC, canvasModel } from './canvas'
 import { framedModel } from './framed'
 import { placaModel } from './placa'
-import { BOARD, CAIXA, FILETE, GLASS_THICKNESS } from './presets'
+import { BOARD, CAIXA, FILETE, GLASS_THICKNESS, PADRAO } from './presets'
 import { FRAME_FINISHES, type FrameColor } from './surfaces'
 import type { ModelDef } from './types'
 
@@ -9,10 +9,17 @@ import type { ModelDef } from './types'
 export const FINISHES = ['canvas', 'filete', 'caixa', 'placa'] as const
 export type Finish = (typeof FINISHES)[number]
 
+/**
+ * O que o modelo desenha: os acabamentos acima e a moldura padrão, que só a página de produto do tema
+ * manda (a galeria e o visualizador avisam que a conhecem com `padrao: true`). Fica fora de FINISHES
+ * porque as páginas especial e imersiva não a vendem.
+ */
+export type ModelFinish = Finish | 'padrao'
+
 /** Uma peça como o cliente montou na página de produto */
 export interface Configuration {
-  finish: Finish
-  /** Só filete e caixa levam vidro; nos outros é ignorado */
+  finish: ModelFinish
+  /** Só as molduras (filete, padrão e caixa) levam vidro; nos outros é ignorado */
   glass: boolean
   /** Cor da moldura; a placa não tem moldura e ignora */
   color: FrameColor
@@ -31,10 +38,11 @@ export function configureModel({ finish, glass, color, width, height, art }: Con
       return canvasModel({ ...CANVAS_SPEC, width, height, art, frameSurface })
     case 'placa':
       return placaModel({ ...BOARD, width, height, art })
+    case 'padrao':
     case 'filete':
     case 'caixa':
       return framedModel({
-        ...(finish === 'filete' ? FILETE : CAIXA),
+        ...(finish === 'padrao' ? PADRAO : finish === 'filete' ? FILETE : CAIXA),
         ...BOARD,
         width,
         height,

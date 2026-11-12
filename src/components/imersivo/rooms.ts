@@ -131,6 +131,33 @@ function sized({ key, label, above, reco, meters, desk, phone }: SizeShots): Fur
   }
 }
 
+/** Um cômodo com uma foto só (computador e celular) e as pontas do móvel em cada uma */
+interface OnePhoto {
+  wide: Measured
+  narrow: Measured
+  span: { wide: [number, number]; narrow: [number, number] }
+}
+
+/**
+ * Uma largura do móvel num cômodo de foto única (como as camas, que usam as fotos da queen): a escala
+ * vem da largura escolhida, medida nas pontas do móvel, e a altura dele acompanha. No celular, a escala
+ * vem das pontas na foto dele e o piso, da altura do computador (como em `sized`): o topo do móvel fica
+ * onde está nas duas fotos. O eixo do quadro e o enquadramento continuam os da foto.
+ * 12/11/2026: sem isso, aparador, buffet e escrivaninha ficavam com a medida da foto (1,40, 2,40 e
+ * 1,95 m) qualquer que fosse a largura escolhida no "Me ajude a escolher" da página de produto.
+ */
+function resized(photo: OnePhoto, { meters, ...size }: Pick<SizeShots, 'key' | 'label' | 'above' | 'reco' | 'meters'>): FurnitureSize {
+  const top = ((photo.wide.floorLine - photo.wide.topLine) * meters) / (photo.span.wide[1] - photo.span.wide[0])
+  const phonePer = (photo.span.narrow[1] - photo.span.narrow[0]) / meters
+  return {
+    ...size,
+    top,
+    span: photo.span,
+    wide: calibrated(top, photo.wide),
+    narrow: calibrated(top, { ...photo.narrow, floorLine: photo.narrow.topLine + top * phonePer }),
+  }
+}
+
 /** O ambiente que tem larguras: os campos da largura inicial e a lista */
 function withSizes(room: Omit<RoomDef, 'above' | 'top' | 'wide' | 'narrow' | 'span' | 'sizes'>, sizes: Omit<NonNullable<RoomDef['sizes']>, 'options'>, options: FurnitureSize[]): RoomDef {
   const initial = options.find((option) => option.key === sizes.initial)!
@@ -143,6 +170,27 @@ const SALA_PHONE = { zoom: 1, viewHeight: 1.35 }
 // passava do alto da foto ou entrava no teto. Piso e topo do móvel descem junto.
 const QUARTO_DESK = { height: 1280, floorLine: 1122, topLine: 766, zoom: 1.5, viewHeight: 1.3 }
 const QUARTO_PHONE = { topLine: 738, zoom: 1, viewHeight: 1.45 }
+
+// Os cômodos de foto única. A escrivaninha (0,75 m de altura na foto) tem a luminária à direita: o
+// quadro vai um pouco para a esquerda
+const ESCRITORIO: OnePhoto = {
+  span: { wide: [1171, 2675], narrow: [214, 1959] },
+  wide: wide('/ambiente/escritorio-computador.webp', { front: '/ambiente/escritorio-computador-frente.webp', height: 2400, floorLine: 2149, topLine: 1575, axis: 1882, zoom: 1.38, viewHeight: 1.2 }),
+  narrow: narrow('/ambiente/escritorio-celular.webp', { floorLine: 3153, topLine: 2481, axis: 1037, zoom: 1.63, viewHeight: 1.25 }),
+}
+// Buffet (0,80 m de altura na foto), com o vaso de galhos à direita
+const JANTAR: OnePhoto = {
+  span: { wide: [1025, 2809], narrow: [356, 1866] },
+  wide: wide('/ambiente/sala-jantar-computador.webp', { front: '/ambiente/sala-jantar-computador-frente.webp', height: 2300, floorLine: 2137, topLine: 1541, axis: 1917, zoom: 1.44, viewHeight: 1.2 }),
+  narrow: narrow('/ambiente/sala-jantar-celular.webp', { floorLine: 3510, topLine: 2930, axis: 1111, zoom: 1.86, viewHeight: 1.3 }),
+}
+// Aparador (0,80 m de altura na foto); o vaso de galhos fica à esquerda, perto do meio: o quadro vai
+// para a direita dele
+const HALL: OnePhoto = {
+  span: { wide: [1392, 2443], narrow: [352, 1819] },
+  wide: wide('/ambiente/hall-computador.webp', { front: '/ambiente/hall-computador-frente.webp', height: 2300, floorLine: 2151, topLine: 1554, axis: 2093, zoom: 1.48, viewHeight: 1.2 }),
+  narrow: narrow('/ambiente/hall-celular.webp', { floorLine: 3384, topLine: 2532, axis: 1231, zoom: 1.34, viewHeight: 1.25 }),
+}
 
 export const ROOMS: RoomDef[] = [
   // Sala: uma foto por largura do sofá (fotos de 15/10). Quarto: as três camas usam as fotos da queen,
@@ -215,43 +263,32 @@ export const ROOMS: RoomDef[] = [
       }),
     ],
   ),
-  {
-    key: 'escritorio',
-    label: 'Escritório',
-    above: 'acima da escrivaninha',
-    top: 0.75,
-    thumb: '/ambiente/escritorio-mini.webp',
-    furniture: 'Escrivaninha',
-    phrase: 'uma escrivaninha',
-    span: { wide: [1171, 2675], narrow: [214, 1959] },
-    // Escrivaninha de 0,75 m (a luminária fica à direita: o quadro vai um pouco para a esquerda)
-    wide: calibrated(0.75, wide('/ambiente/escritorio-computador.webp', { front: '/ambiente/escritorio-computador-frente.webp', height: 2400, floorLine: 2149, topLine: 1575, axis: 1882, zoom: 1.38, viewHeight: 1.2 })),
-    narrow: calibrated(0.75, narrow('/ambiente/escritorio-celular.webp', { floorLine: 3153, topLine: 2481, axis: 1037, zoom: 1.63, viewHeight: 1.25 })),
-  },
-  {
-    key: 'jantar',
-    label: 'Jantar',
-    above: 'acima do buffet',
-    top: 0.8,
-    thumb: '/ambiente/sala-jantar-mini.webp',
-    furniture: 'Buffet',
-    phrase: 'um buffet',
-    span: { wide: [1025, 2809], narrow: [356, 1866] },
-    // Buffet de 0,80 m (o vaso com galhos fica à direita)
-    wide: calibrated(0.8, wide('/ambiente/sala-jantar-computador.webp', { front: '/ambiente/sala-jantar-computador-frente.webp', height: 2300, floorLine: 2137, topLine: 1541, axis: 1917, zoom: 1.44, viewHeight: 1.2 })),
-    narrow: calibrated(0.8, narrow('/ambiente/sala-jantar-celular.webp', { floorLine: 3510, topLine: 2930, axis: 1111, zoom: 1.86, viewHeight: 1.3 })),
-  },
-  {
-    key: 'hall',
-    label: 'Hall',
-    above: 'acima do aparador',
-    top: 0.8,
-    thumb: '/ambiente/hall-mini.webp',
-    furniture: 'Aparador',
-    phrase: 'um aparador',
-    span: { wide: [1392, 2443], narrow: [352, 1819] },
-    // Aparador de 0,80 m; o vaso com galhos fica à esquerda, perto do meio: o quadro vai para a direita dele
-    wide: calibrated(0.8, wide('/ambiente/hall-computador.webp', { front: '/ambiente/hall-computador-frente.webp', height: 2300, floorLine: 2151, topLine: 1554, axis: 2093, zoom: 1.48, viewHeight: 1.2 })),
-    narrow: calibrated(0.8, narrow('/ambiente/hall-celular.webp', { floorLine: 3384, topLine: 2532, axis: 1231, zoom: 1.34, viewHeight: 1.25 })),
-  },
+  // Escritório, jantar e hall: uma foto só, com a escala de cada largura (como as camas; 12/11/2026). As
+  // larguras são as do "Me ajude a escolher" da página de produto; a inicial, a mais perto da foto
+  // horizontal, que também deixa mais parede acima do móvel
+  withSizes(
+    { key: 'escritorio', label: 'Escritório', thumb: '/ambiente/escritorio-mini.webp', furniture: 'Escrivaninha', phrase: 'uma escrivaninha' },
+    { label: 'Escrivaninha', aria: 'Largura da escrivaninha', initial: '160', fits: 'essa escrivaninha' },
+    [
+      resized(ESCRITORIO, { key: '120', label: '1,20 m', above: 'acima da escrivaninha de 1,20 m', reco: '30x45', meters: 1.2 }),
+      resized(ESCRITORIO, { key: '160', label: '1,60 m', above: 'acima da escrivaninha de 1,60 m', reco: '40x60', meters: 1.6 }),
+    ],
+  ),
+  withSizes(
+    { key: 'jantar', label: 'Jantar', thumb: '/ambiente/sala-jantar-mini.webp', furniture: 'Buffet', phrase: 'um buffet' },
+    { label: 'Buffet', aria: 'Largura do buffet', initial: '200', fits: 'esse buffet' },
+    [
+      resized(JANTAR, { key: '180', label: '1,80 m', above: 'acima do buffet de 1,80 m', reco: '50x70', meters: 1.8 }),
+      resized(JANTAR, { key: '200', label: '2,00 m', above: 'acima do buffet de 2,00 m', reco: '50x70', meters: 2 }),
+    ],
+  ),
+  withSizes(
+    { key: 'hall', label: 'Hall', thumb: '/ambiente/hall-mini.webp', furniture: 'Aparador', phrase: 'um aparador' },
+    { label: 'Aparador', aria: 'Largura do aparador', initial: '160', fits: 'esse aparador' },
+    [
+      resized(HALL, { key: '90', label: '0,90 m', above: 'acima do aparador de 0,90 m', reco: '30x45', meters: 0.9 }),
+      resized(HALL, { key: '120', label: '1,20 m', above: 'acima do aparador de 1,20 m', reco: '30x45', meters: 1.2 }),
+      resized(HALL, { key: '160', label: '1,60 m', above: 'acima do aparador de 1,60 m', reco: '40x60', meters: 1.6 }),
+    ],
+  ),
 ]

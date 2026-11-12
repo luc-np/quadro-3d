@@ -28,3 +28,17 @@ export const FILETE: FramePreset = {
   lipThickness: 0.005,
   glass: 0,
 }
+
+/**
+ * Moldura padrão (Chanfrada) dos quadros até R$ 399 da loja: 1,5 cm de frente e 1 cm de altura. Até
+ * 12/11/2026 ela só existia num remendo à mão nos arquivos gerados do tema (gq3d-galeria.js e
+ * gq3d-viewer.js, 23/10/2026), que sumia a cada build.
+ */
+export const PADRAO: FramePreset = {
+  style: 'padrão',
+  frameFront: 0.015,
+  frameDepth: 0.01,
+  overlap: 0.004,
+  lipThickness: 0.005,
+  glass: 0,
+}

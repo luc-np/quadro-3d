@@ -6,7 +6,7 @@ import type { OrbitControls as OrbitControlsImpl } from 'three-stdlib'
 import { easing } from 'maath'
 import { Frame } from '@/components/scene/Frame'
 import { EXPLODE_YAW, fitDistance, frameExtent } from '@/components/scene/layout'
-import { configureModel, type Finish } from '@/components/scene/models/configure'
+import { configureModel, type ModelFinish } from '@/components/scene/models/configure'
 import type { FrameColor } from '@/components/scene/models/surfaces'
 import type { PartDef } from '@/components/scene/models/types'
 import { BACK_LIGHT, CAMERA, GRAZING_LIGHT, KEY_LIGHT, SHADOW, StudioLight } from '@/components/scene/Studio'
@@ -14,7 +14,7 @@ import { FRAME_ORDER } from '@/components/scene/timeline'
 
 /** O que a página de produto escolheu: o mesmo para todas as peças do kit */
 export interface ViewerConfig {
-  finish: Finish
+  finish: ModelFinish
   glass: boolean
   color: FrameColor
   /** Largura e altura de cada peça como fica na parede (cm) */
