@@ -43,7 +43,7 @@ export interface GaleriaConfig {
   arts: string[]
   mode: GaleriaMode
   /**
-   * O ambiente da parede escolhido na página ("Me ajude a escolher": sofá ou cama na largura dita).
+   * O ambiente da parede escolhido na página ("Me ajude a escolher": o móvel na largura dita).
    * Sem ele, o da visita, o do produto ou o quarto. Vale também para a página imersiva (gq-room).
    */
   room?: { key: string; size?: string | null }

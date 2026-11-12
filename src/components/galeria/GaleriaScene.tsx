@@ -6,7 +6,7 @@ import { Frame } from '@/components/scene/Frame'
 import { fitDistance } from '@/components/scene/layout'
 import type { ModelDef } from '@/components/scene/models/types'
 import { BACK_LIGHT, CAMERA, ENVIRONMENT_INTENSITY, GRAZING_LIGHT, KEY_LIGHT, SHADOW } from '@/components/scene/Studio'
-import { AMBIENT, hangHeight, PhotoRoom, photoView, WallShadow } from '@/components/especial/PhotoRoom'
+import { AMBIENT, hangOnPhoto, PhotoRoom, photoView, WallShadow } from '@/components/especial/PhotoRoom'
 import { fadeRoom, ROOM } from '@/components/especial/Room'
 import { furnitureOf, type RoomDef } from '@/components/imersivo/rooms'
 
@@ -257,8 +257,10 @@ function GaleriaScene({ models: chosen, mode, room: chosenRoom, roomOn, insets, 
     })
     if (quadro.current) quadro.current.rotation.set(w.pitch, w.tilt + w.spin + introYaw, 0)
 
-    // O ambiente aparece (foto) com o quadro pendurado; quadros altos ficam acima do móvel
-    const hang = hangHeight(H, room.top)
+    // O ambiente aparece (foto) com o quadro pendurado; quadros altos ficam acima do móvel e, quando a
+    // foto acaba antes (móvel estreito na escala da largura dele), descem até caber
+    const roomPhoto = narrow ? room.narrow : room.wide
+    const hang = hangOnPhoto(H, room.top, roomPhoto)
     const drop = hang + ROOM.floorY
     if (roomGroup.current) {
       roomGroup.current.position.y = -drop
@@ -281,7 +283,6 @@ function GaleriaScene({ models: chosen, mode, room: chosenRoom, roomOn, insets, 
     work.frontLook.set(0, 0, 0)
     work.front.copy(work.frontLook).addScaledVector(FRONT_DIRECTION, fitDistance([setWidth, H], fov, viewport, free, compact ? FRONT_MARGIN.narrow : FRONT_MARGIN.wide))
 
-    const roomPhoto = narrow ? room.narrow : room.wide
     const photo = narrow ? { ...roomPhoto, zoom: roomPhoto.zoom * NARROW_WALL_ZOOM } : roomPhoto
     const quadroTop = hang + H / 2
     const shift = (viewport.width / 2 - centerX) / viewport.width

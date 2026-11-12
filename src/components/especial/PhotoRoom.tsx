@@ -74,6 +74,21 @@ export function hangHeight(quadroHeight: number, furnitureTop = AMBIENT.sofaTop)
   return Math.max(-ROOM.floorY, furnitureTop + AMBIENT.hangGap + quadroHeight / 2)
 }
 
+/** Folga (m) entre o topo do quadro e o alto da foto: a de cima da tela (TOP_MARGIN) e a faixa das pílulas */
+const WALL_ROOM = 0.4
+
+/**
+ * `hangHeight` dentro da parede que a foto mostra. Com a escala da largura do móvel, a foto de um móvel
+ * estreito cobre pouca parede (o aparador de 0,90 m vai só até 1,84 m do piso): o quadro desce até o
+ * topo ficar `WALL_ROOM` abaixo do alto da foto, sem a base chegar a menos de `hangGap` do móvel. Onde a
+ * parede sobra, é o `hangHeight` (12/11/2026).
+ */
+export function hangOnPhoto(quadroHeight: number, furnitureTop: number, photo: AmbientPhoto): number {
+  const wallTop = (photo.floorLine * AMBIENT.ceiling) / (photo.floorLine - photo.ceilingLine)
+  const lowest = furnitureTop + AMBIENT.hangGap + quadroHeight / 2
+  return Math.max(lowest, Math.min(hangHeight(quadroHeight, furnitureTop), wallTop - WALL_ROOM - quadroHeight / 2))
+}
+
 /** Escala da foto (m por px) e onde ela fica na cena: o eixo em x = 0 e o piso em ROOM.floorY */
 function placement(photo: AmbientPhoto) {
   const meters = AMBIENT.ceiling / (photo.floorLine - photo.ceilingLine)
